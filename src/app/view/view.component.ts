@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -15,13 +16,14 @@ export class ViewComponent {
   public dbLength:any;
   public updatePage = false;
   public ngForm :any;
-  public tname = '';
-  public uniqueid = '';
-  public address = '';
-  public experience = 0;
-  public contact = '';
-  public qualification = '';
-  public salary = 0;
+
+  public tname = new FormControl('');
+  public uniqueid = new FormControl('');
+  public address =new FormControl('');
+  public experience =new FormControl('');
+  public contact = new FormControl('');
+  public qualification =new FormControl('');
+  public salary =new FormControl('');
   public id:any;
 
   public onView() {
@@ -60,26 +62,26 @@ public onUpdate(id:Number){
   debugger;
   this.updatePage = true;
   var updData = this.teacherArray.find((val:any) => val.Tid === id);
-  this.tname = updData.Name;
-  this.uniqueid = updData.uniqueID;
-  this.address = updData.Adress;
-  this.experience = updData.Experience;
-  this.contact = updData.ContactNo;
-  this.qualification = updData.Qualification;
-  this.salary = updData.Salary;
+  this.tname.setValue(updData.Name);
+  this.uniqueid.setValue(updData.uniqueID);
+  this.address.setValue(updData.Adress);
+  this.experience.setValue(updData.Experience);
+  this.contact.setValue(updData.ContactNo);
+  this.qualification.setValue(updData.Qualification);
+  this.salary.setValue(updData.Salary);
   this.id = id;
 }
 
 
 public updateValue() {
   var formData = {
-    teachername:this.tname,
-    address:this.address,
-    uniqueid:this.uniqueid,
-    experience:this.experience,
-    contactno:this.contact,
-    qualification:this.qualification,
-    salary:this.salary
+    teachername:this.tname.value,
+    address:this.address.value,
+    uniqueid:this.uniqueid.value,
+    experience:this.experience.value,
+    contactno:this.contact.value,
+    qualification:this.qualification.value,
+    salary:this.salary.value
   };
 
   this.http.put("http://localhost:3000/teacherData/" + this.id, formData).subscribe(
@@ -87,6 +89,7 @@ public updateValue() {
       alert("Updated..");
       console.log(res);
       this.onView();
+      this.updatePage = false;
     },
     (err)=> console.log(err)
   );

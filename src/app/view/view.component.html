@@ -1,6 +1,6 @@
 
 <div class="viewdata">
-  <button type="button" class="btn" (click)="onView()">Get Value</button> <br><br>
+  <button type="button" class="btn btn-outline-primary" (click)="onView()">Get Value</button> <br><br>
     <table border="1" class="table" *ngIf="isClicked">
         <tr>
             <th>Unique ID</th>
@@ -21,9 +21,9 @@
             <td>{{value.ContactNo}}</td>
             <td>{{value.Salary}}</td>
 
-            <input type="button" value="Delete" (click)="onDelete(value.Tid)">
+            <input type="button" class="btn btn-link" value="Delete" (click)="onDelete(value.Tid)">
 
-            <input type="button" value="Update" (click)="onUpdate(value.Tid)">
+            <input type="button" value="Update" class="btn btn-link" (click)="onUpdate(value.Tid)">
 
         </tr>
         
@@ -34,21 +34,21 @@
         <form #update="ngForm"> 
             <div *ngIf="updatePage">
                 <label for="name"> Name:</label> &nbsp;
-                <input type="text"  ([ngModel])="tname" value="{{tname}}"><br><br>
-                <label for="name"> Unique Id:</label> &nbsp;
-                <input type="text"  ([ngModel])="uniqueid" value="{{uniqueid}}"><br><br>
+                <input type="text"  [formControl]="tname" value="{{tname.value}}"><br><br>
+                <label for="uniqueid"> Unique Id:</label> &nbsp;
+                <input type="text"  [formControl]="uniqueid" value="{{uniqueid.value}}"><br><br>
                 <label for="address"> Address:</label> &nbsp;
-                <input type="text" ([ngModel])="address" value="{{address}}"><br><br>
+                <input type="text" [formControl]="address" value="{{address.value}}"><br><br>
                 <label for="experience"> Experience:</label> &nbsp;
-                <input type="text" ([ngModel])="experience" value="{{experience}}"><br><br>
+                <input type="text" [formControl]="experience" value="{{experience.value}}"><br><br>
                 <label for="qualification"> Qualification:</label> &nbsp;
-                <input type="text" ([ngModel])="qualification" value="{{qualification}}"><br><br>
+                <input type="text" [formControl]="qualification" value="{{qualification.value}}"><br><br>
                 <label for="contact"> contact Number:</label> &nbsp;
-                <input type="text" ([ngModel])="contact" value="{{contact}}"><br><br>
+                <input type="text" [formControl]="contact" value="{{contact.value}}"><br><br>
                 <label for="salary"> Salary:</label> &nbsp;
-                <input type="text" ([ngModel])="salary" value="{{salary}}"><br><br>
-                {{tname}}<br>
-                <button type="submit" class="btn" (click)="updateValue()">Update Value </button>
+                <input type="text" [formControl]="salary" value="{{salary.value}}"><br><br>
+        
+                <button type="submit" class="btn btn-primary" (click)="updateValue()">Update Value </button>
             </div>
             
         
