@@ -1,0 +1,24 @@
+<div class="createpage">
+    <h3>Add Teacher Data</h3><br>
+    <form #login="ngForm"> 
+        <div>
+            <label for="name">Enter Name:</label> &nbsp;
+            <input type="text" placeholder="Enter Teacher Name" [(ngModel)]="tname" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="uniqueid">Enter UniqueId:</label> &nbsp;
+            <input type="text" placeholder="Enter Unique ID"  [(ngModel)]="uniqueid" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="address">Enter Address:</label> &nbsp;
+            <input type="text" placeholder="Enter Address"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="experience">Enter Experience:</label> &nbsp;
+            <input type="text" placeholder="Enter Experience"  [(ngModel)]="experience" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="qualification">Enter Qualification:</label> &nbsp;
+            <input type="text" placeholder="Enter Qualification"  [(ngModel)]="qualification" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="contact">Enter contact Number:</label> &nbsp;
+            <input type="text" placeholder="Enter Contact Number"  [(ngModel)]="contact" [ngModelOptions]="{standalone: true}"><br><br>
+            <label for="salary">Enter Salary:</label> &nbsp;
+            <input type="text" placeholder="Enter Salary"  [(ngModel)]="salary" [ngModelOptions]="{standalone: true}"><br><br>
+
+        </div>
+        <button type="submit" class="btn" (click)="onSubmit()">Create </button>
+    
+    </form>
+</div>
