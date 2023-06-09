@@ -1,6 +1,21 @@
 
 <div class="viewdata">
   <button type="button" class="btn btn-outline-primary" (click)="onView()">Get Value</button> <br><br>
+  <form>
+    <div class="search">
+        <label>
+            Qualification:
+            <input type="text" [formControl]="filterQualification">&nbsp;
+        </label>
+        <label class="exp">
+            Experience:
+            <input type="text" [formControl]="filterExperience">
+        </label>
+        <button class="searchbtn" type="submit" (click)="onView()">Search</button>
+    </div><br>
+  </form>
+
+
     <table border="1" class="table" *ngIf="isClicked">
         <tr>
             <th>Unique ID</th>
@@ -31,7 +46,7 @@
     </table><br><br>
 
     <div class="updateform" *ngIf="UpdateField && dbLength">
-        <form #update="ngForm"> 
+        <form> 
             <div *ngIf="updatePage">
                 <label for="name"> Name:</label> &nbsp;
                 <input type="text"  [formControl]="tname" value="{{tname.value}}"><br><br>

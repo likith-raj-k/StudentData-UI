@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 
 
@@ -15,7 +15,6 @@ export class ViewComponent {
   public UpdateField = false;
   public dbLength:any;
   public updatePage = false;
-  public ngForm :any;
 
   public tname = new FormControl('');
   public uniqueid = new FormControl('');
@@ -25,9 +24,18 @@ export class ViewComponent {
   public qualification =new FormControl('');
   public salary =new FormControl('');
   public id:any;
+  public filterQualification = new FormControl();
+  public filterExperience = new FormControl();
 
   public onView() {
-    this.http.get("http://localhost:3000/teacherData").subscribe(
+    let params = new HttpParams();
+    if(this.filterQualification.value != null)
+      params = params.set('qualification', this.filterQualification.value);
+    
+    if(this.filterExperience.value != null)
+      params = params.set('experience', this.filterExperience.value);
+
+    this.http.get("http://localhost:3000/teacherData",{params}).subscribe(
       (res:any) => {
         console.log(res);
         this.teacherArray = res["response"];
@@ -46,6 +54,7 @@ export class ViewComponent {
       (err) => console.log(err)
     );
   }
+
 
 public onDelete(id:Number) {
   this.http.delete("http://localhost:3000/teacherData/" + id).subscribe(
