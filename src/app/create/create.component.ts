@@ -47,6 +47,7 @@ export class CreateComponent {
         (res) =>{ 
           console.log(res)
           alert("Data submitted");
+          this.teacherForm.reset();
         },
         (err) => {
            console.log(err)

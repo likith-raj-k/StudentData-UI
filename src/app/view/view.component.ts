@@ -83,6 +83,7 @@ public onUpdate(id:Number){
 
 
 public updateValue() {
+  debugger;
   var formData = {
     teachername:this.tname.value,
     address:this.address.value,

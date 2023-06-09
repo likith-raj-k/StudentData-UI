@@ -1,0 +1,9 @@
+<div class="login">
+    <form *ngIf="login">
+      <h1>Log in</h1><br>
+      <input type="email" placeholder="Username" [formControl]="username"><br><br>
+      <input type="password" placeholder="Password" [formControl]="password"><br><br>
+      <button type="submit" class="btn btn-outline-primary" (click)="onLogin()">Login</button><br>
+      <a href="#">Forgot your password?</a>
+    </form>
+  </div>
