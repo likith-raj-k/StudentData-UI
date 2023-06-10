@@ -23,7 +23,7 @@ export class LoginComponent {
       (res:any) =>{ 
         if(res.response) {
           console.log(res)
-        alert("Login successfully");
+        alert("Login success");
         this.router.navigate(['/dashboard']);
         this.login = false;
         } else {
@@ -35,6 +35,10 @@ export class LoginComponent {
          console.log(err)
       },
     );
-    
+  }
+
+  public onSignUp(){
+    this.login = false;
+    this.router.navigate(['/signup']);
   }
 }

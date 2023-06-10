@@ -1,0 +1,26 @@
+<div class="signup">
+    <h3>Sign Up</h3>
+    <div>
+        <form class="signupform">
+            <label>
+                Enter your Name:
+                <input type="text" [formControl]="name">
+            </label><br><br>
+            <label>
+                Enter Username:
+                <input type="text" [formControl]="username">
+            </label><br><br>
+            <label>
+                Enter Password:
+                <input type="text" [formControl]="password">
+            </label><br><br>
+           
+                <button type="submit" class="btn btn-primary" (click)="onSignUp()">Submit</button><br><br>
+            <div>
+                <a routerLink="/login">Go to Login</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+

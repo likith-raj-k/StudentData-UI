@@ -3,7 +3,9 @@
       <h1>Log in</h1><br>
       <input type="email" placeholder="Username" [formControl]="username"><br><br>
       <input type="password" placeholder="Password" [formControl]="password"><br><br>
-      <button type="submit" class="btn btn-outline-primary" (click)="onLogin()">Login</button><br>
+      <button type="submit" class="btn btn-outline-primary" (click)="onLogin()">Login</button><br><br>
+      <p>Don't Have Account? <button type="submit" (click)="onSignUp()">SignUp</button></p>
+      
       <a href="#">Forgot your password?</a>
     </form>
   </div>
